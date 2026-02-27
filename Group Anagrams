@@ -1,0 +1,21 @@
+class Solution(object):
+
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        group = {}
+        for word in strs:
+            sorted_word = "".join(sorted(word))
+
+            if sorted_word in group:
+                group[sorted_word].append(word)
+            else:
+                group[sorted_word] = [word]
+        return list(group.values())
+
+input_data = ["ear","tea","tan","ate","nat"]
+
+sol = Solution()
+print(sol.groupAnagrams(input_data))
